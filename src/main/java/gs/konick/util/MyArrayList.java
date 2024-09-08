@@ -155,4 +155,12 @@ public class MyArrayList<T> extends AbstractList<T> implements RandomAccess {
     public void clear() {
         this.size = 0;
     }
+
+    /**
+     * Метод заменяет элемент по индексу (Да - это тупо, но есть в ТК)
+     */
+    public void replace(int index, T element) {
+        this.array[index] = element;
+    }
+
 }
