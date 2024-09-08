@@ -51,10 +51,9 @@ public class MyArrayList<T> extends AbstractList<T> implements RandomAccess {
 
     /**
      * Конструктор, который принимает любую коллекцию
-     * @param collection
-     * @param <T>
+     * @param collection - другой элемент Collection
      */
-    public <T> MyArrayList(Collection<? extends T> collection) {
+    public MyArrayList(Collection<? extends T> collection) {
         this.array = collection.toArray();
         this.size = this.array.length;
     }
@@ -77,7 +76,7 @@ public class MyArrayList<T> extends AbstractList<T> implements RandomAccess {
      */
     private void increaseArray() {
         int oldCapacity = this.array.length;
-        int newCapacity = (int) DEFAULT_CAPACITY_INCREASE_COEF * oldCapacity + 1;
+        int newCapacity = (int) (DEFAULT_CAPACITY_INCREASE_COEF * oldCapacity) + 1;
 
         increaseArray(newCapacity);
     }
@@ -105,7 +104,7 @@ public class MyArrayList<T> extends AbstractList<T> implements RandomAccess {
     /**
      * Метод для вставки элемента в конец списка
      * @param element element whose presence in this collection is to be ensured
-     * @return
+     * @return true
      */
     @Override
     public boolean add(T element) {
@@ -147,5 +146,13 @@ public class MyArrayList<T> extends AbstractList<T> implements RandomAccess {
     @Override
     public int size() {
         return this.size;
+    }
+
+    /**
+     * Очищение листа
+     */
+    @Override
+    public void clear() {
+        this.size = 0;
     }
 }
