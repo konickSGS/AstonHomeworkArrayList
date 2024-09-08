@@ -37,6 +37,10 @@ public class QuickSortTest {
                         intComparator
                 ),
                 Arguments.of(
+                        List.of(5, 4, 3, 2, 1, 0, 10, 9, 8, 7, 6),
+                        intComparator
+                ),
+                Arguments.of(
                         List.of(10),
                         intComparator
                 ),
