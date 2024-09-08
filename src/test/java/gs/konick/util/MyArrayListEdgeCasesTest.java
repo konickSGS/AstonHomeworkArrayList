@@ -55,6 +55,46 @@ public class MyArrayListEdgeCasesTest {
         );
     }
 
+    @DisplayName("Проверка функции get c конкретными параметрами")
+    @ParameterizedTest(name = "{displayName}: {arguments}")
+    @MethodSource("provideGetEdgeCases")
+    public <T> void testGetEdgeCases(List<T> list, int index, T actual) {
+        List<T> myArrayList = new MyArrayList<>(list);
+
+        T expected = myArrayList.get(index);
+        Assertions.assertEquals(
+                actual,
+                expected,
+                "Текущий результат " + actual.toString() + " не равен " + expected.toString()
+        );
+    }
+
+    public static Stream<Arguments> provideGetEdgeCases() {
+
+        return Stream.of(
+                Arguments.of(List.of(1, 2, 3, 4), 2, 3),
+                Arguments.of(List.of(1, 2, 3, 4), 0, 1),
+                Arguments.of(List.of(1), 0, 1)
+        );
+    }
+
+    @DisplayName("Проверка функции get c конкретными параметрами с исключениями")
+    @ParameterizedTest(name = "{displayName}: {arguments}")
+    @MethodSource("provideGetEdgeCasesException")
+    public <T> void testGetEdgeCasesException(List<T> list, int index, Throwable expected) {
+        List<T> myArrayList = new MyArrayList<>(list);
+        Assertions.assertThrows(expected.getClass(), () -> myArrayList.remove(index));
+    }
+
+    public static Stream<Arguments> provideGetEdgeCasesException() {
+
+        return Stream.of(
+                Arguments.of(Stream.of(1, 2, 3, 4).map(Object::toString).toList(), -1, new IndexOutOfBoundsException()),
+                Arguments.of(Stream.of(1, 2, 3, 4).map(Object::toString).toList(), 10, new IndexOutOfBoundsException()),
+                Arguments.of(List.of(), 0, new IndexOutOfBoundsException())
+        );
+    }
+
     @DisplayName("Проверка функции remove c конкретными параметрами")
     @ParameterizedTest(name = "{displayName}: {arguments}")
     @MethodSource("provideRemoveEdgeCases")
