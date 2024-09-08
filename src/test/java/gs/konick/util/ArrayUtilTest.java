@@ -58,6 +58,24 @@ public class ArrayUtilTest {
                         array,
                         4,
                         10
+                ),
+                Arguments.of(
+                        array,
+                        new Object[]{0, 3, 4, 5, 6, 7, 8, 9, 8, 9},
+                        3,
+                        -2
+                ),
+                Arguments.of(
+                        array,
+                        new Object[]{3, 4, 5, 6, 7, 8, 9, 7, 8, 9},
+                        3,
+                        -3
+                ),
+                Arguments.of(
+                        array,
+                        new Object[]{4, 5, 6, 7, 8, 9, 6, 7, 8, 9},
+                        3,
+                        -4
                 )
         );
     }
