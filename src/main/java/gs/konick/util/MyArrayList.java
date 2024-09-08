@@ -49,6 +49,11 @@ public class MyArrayList<T> extends AbstractList<T> implements RandomAccess {
         this(DEFAULT_CAPACITY);
     }
 
+    /**
+     * Конструктор, который принимает любую коллекцию
+     * @param collection
+     * @param <T>
+     */
     public <T> MyArrayList(Collection<? extends T> collection) {
         this.array = collection.toArray();
         this.size = this.array.length;
@@ -60,7 +65,7 @@ public class MyArrayList<T> extends AbstractList<T> implements RandomAccess {
     }
 
     /**
-     * Метод, который создает "расширяет" массив: создает новый массив большей длины, в который копируются все элементы
+     * Метод, который "расширяет" массив: создает новый массив большей длины, в который копируются все элементы
      * @param newCapacity - новая вместимость массива
      */
     private void increaseArray(int newCapacity) {
