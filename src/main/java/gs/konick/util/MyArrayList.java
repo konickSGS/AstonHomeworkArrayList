@@ -156,7 +156,6 @@ public class MyArrayList<T> extends AbstractList<T> implements RandomAccess {
         this.size = 0;
     }
 
-
     /**
      *
      * @param index index of the element to replace
@@ -173,5 +172,4 @@ public class MyArrayList<T> extends AbstractList<T> implements RandomAccess {
         //noinspection unchecked
         return (T) oldValue;
     }
-
 }
