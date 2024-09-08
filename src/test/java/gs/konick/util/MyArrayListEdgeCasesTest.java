@@ -43,7 +43,7 @@ public class MyArrayListEdgeCasesTest {
     @MethodSource("provideAddEdgeCasesException")
     public <T> void testAddEdgeCasesException(List<T> list, int index, T element, Throwable expected) {
         List<T> myArrayList = new MyArrayList<>(list);
-        Assertions.assertThrows(expected.getClass(), () -> myArrayList.remove(index));
+        Assertions.assertThrows(expected.getClass(), () -> myArrayList.add(index, element));
     }
 
     public static Stream<Arguments> provideAddEdgeCasesException() {
@@ -51,7 +51,7 @@ public class MyArrayListEdgeCasesTest {
         return Stream.of(
                 Arguments.of(Stream.of(1, 2, 3, 4).map(Object::toString).toList(), -1, 1000, new IndexOutOfBoundsException()),
                 Arguments.of(Stream.of(1, 2, 3, 4).map(Object::toString).toList(), 10, 1000, new IndexOutOfBoundsException()),
-                Arguments.of(List.of(), 0, 1000, new IndexOutOfBoundsException())
+                Arguments.of(List.of(), 1, 1000, new IndexOutOfBoundsException())
         );
     }
 
