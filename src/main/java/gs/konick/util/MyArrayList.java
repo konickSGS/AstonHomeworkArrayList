@@ -114,6 +114,23 @@ public class MyArrayList<T> extends AbstractList<T> implements RandomAccess {
     }
 
     /**
+     * Метод удаляет элемент по индексу
+     * @param index the index of the element to be removed
+     * @return удаляемый элемент
+     */
+    @Override
+    public T remove(int index) {
+        if (index < 0 || index >= this.size) {
+            throw new IndexOutOfBoundsException(String.format("Индекс %d выходит за пределы массива длины %d", index, this.size));
+        }
+
+        @SuppressWarnings("unchecked") T removedElement = (T) this.array[index];
+        this.array = ArrayUtil.shiftRightNoCircle(array, index + 1, -1);
+        this.size--;
+        return removedElement;
+    }
+
+    /**
      * Возвращение элемента по индексу
      * @param index индекс
      * @return элемент листа по индексу
