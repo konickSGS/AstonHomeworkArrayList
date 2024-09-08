@@ -156,11 +156,22 @@ public class MyArrayList<T> extends AbstractList<T> implements RandomAccess {
         this.size = 0;
     }
 
+
     /**
-     * Метод заменяет элемент по индексу (Да - это тупо, но есть в ТК)
+     *
+     * @param index index of the element to replace
+     * @param element element to be stored at the specified position
+     * @return старое значение
      */
-    public void replace(int index, T element) {
+    @Override
+    public T set(int index, T element) {
+        if (index < 0 || index >= this.size) {
+            throw new IndexOutOfBoundsException(String.format("Индекс %d выходит за пределы массива длины %d", index, this.size));
+        }
+        Object oldValue = this.array[index];
         this.array[index] = element;
+        //noinspection unchecked
+        return (T) oldValue;
     }
 
 }
