@@ -76,6 +76,12 @@ public class ArrayUtilTest {
                         new Object[]{4, 5, 6, 7, 8, 9, 6, 7, 8, 9},
                         3,
                         -4
+                ),
+                Arguments.of(
+                        array,
+                        array,
+                        3,
+                        -10
                 )
         );
     }
