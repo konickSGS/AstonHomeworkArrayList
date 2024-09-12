@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Реализация quickSort
  */
-public class QuickSort extends AbstractSort {
+public class QuickSort implements ListSort {
     /**
      * Главный метод сортировки
      */
@@ -57,7 +57,7 @@ public class QuickSort extends AbstractSort {
     }
 
     /**
-     * Метод для взаимного переноса
+     * Метод для того, чтобы поменять ссылки в листе друг с другом
      */
     private <T> void swap(List<T> list, int i, int j) {
         T temp = list.get(i);

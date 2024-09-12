@@ -16,7 +16,7 @@ public class QuickSortTest {
     @MethodSource("provideSortEdgeCases")
     public <T> void testGetEdgeCases(List<T> list, Comparator<T> comparator) {
         List<T> myArrayList = new MyArrayList<>(list);
-        AbstractSort quickSort = new QuickSort();
+        ListSort quickSort = new QuickSort();
         List<T> actual = quickSort.sort(myArrayList, comparator);
 
         List<T> expected = new ArrayList<>(list);
