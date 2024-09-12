@@ -14,9 +14,10 @@ public class ArrayUtil {
      * 0 1 2 3 4 5 4 5 6 7
      * Результат shiftNoCircle(array, 4, -2):
      * 0 1 4 5 6 7 8 9 8 9
-     * @param array - исходный массив
+     *
+     * @param array     - исходный массив
      * @param indexFrom - индекс с которого мы хотим двигать
-     * @param shift - сдвиг. Только положительное
+     * @param shift     - сдвиг. Только положительное
      * @return новый массив со сдвигом
      * @throws IllegalArgumentException
      */
@@ -37,5 +38,19 @@ public class ArrayUtil {
             newArray[i + shift] = array[i];
         }
         return newArray;
+    }
+
+    public static int[] makeRandomIntegerArray(int size, int minValue, int maxValue) {
+        if (size <= 0) {
+            throw new IllegalArgumentException("Длина меньше нуля");
+        }
+
+        int[] array = new int[size];
+
+        for (int i = 0; i < size; i++) {
+            array[i] = (int) (Math.random() * (maxValue - minValue + 1) + minValue);
+        }
+
+        return array;
     }
 }
