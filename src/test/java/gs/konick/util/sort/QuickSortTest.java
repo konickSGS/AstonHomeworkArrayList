@@ -1,5 +1,6 @@
 package gs.konick.util.sort;
 
+import gs.konick.util.ArrayUtil;
 import gs.konick.util.MyArrayList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -29,8 +30,10 @@ public class QuickSortTest {
     }
 
     public static Stream<Arguments> provideSortEdgeCases() {
-
         Comparator<Integer> intComparator = (o1, o2) -> Integer.compare(o2, o1);
+        int[] array = ArrayUtil.makeRandomIntegerArray(100, 10, 1000);
+        List<Integer> randomList = Arrays.stream(array).boxed().toList();
+
         return Stream.of(
                 Arguments.of(
                         List.of(10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0),
@@ -46,6 +49,10 @@ public class QuickSortTest {
                 ),
                 Arguments.of(
                         List.of(10, 9),
+                        intComparator
+                ),
+                Arguments.of(
+                        randomList,
                         intComparator
                 )
         );
