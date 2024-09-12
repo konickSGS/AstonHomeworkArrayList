@@ -25,7 +25,7 @@ public class QuickSortTest {
         Assertions.assertArrayEquals(
                 actual.toArray(),
                 expected.toArray(),
-                "Текущий результат " + actual + " не равен " + expected
+                "Текущий результат\n" + actual + "\nне равен\n" + expected
         );
     }
 
