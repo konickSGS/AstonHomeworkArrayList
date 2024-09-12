@@ -1,5 +1,7 @@
 package gs.konick.util.sort;
 
+import gs.konick.util.MyArrayList;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -7,9 +9,9 @@ import java.util.List;
 public class MergeSort implements ListSort {
     @Override
     public <T> List<T> sort(List<T> list, Comparator<T> comparator) {
-        List<T> newList = new ArrayList<>(list);
-        // Чтобы на каждой итерации не создавать подлисты, лучше создать с самого одну копию листа и ее использовать
-        List<T> copyList = new ArrayList<>(list);
+        List<T> newList = new MyArrayList<>(list);
+        // Чтобы на каждой итерации не создавать подлисты, лучше создать с самого начала одну копию листа и ее использовать
+        List<T> copyList = new MyArrayList<>(list);
 
         mergeSort(newList, copyList, comparator, 0, newList.size() - 1);
         return newList;

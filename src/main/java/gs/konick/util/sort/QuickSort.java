@@ -1,5 +1,7 @@
 package gs.konick.util.sort;
 
+import gs.konick.util.MyArrayList;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -12,7 +14,7 @@ public class QuickSort implements ListSort {
      * Главный метод сортировки
      */
     public <T> List<T> sort(List<T> list, Comparator<T> comparator) {
-        List<T> newList = new ArrayList<>(list);
+        List<T> newList = new MyArrayList<>(list);
 
         quickSort(newList, comparator, 0, list.size() - 1);
         return newList;
