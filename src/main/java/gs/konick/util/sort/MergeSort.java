@@ -2,11 +2,10 @@ package gs.konick.util.sort;
 
 import gs.konick.util.MyArrayList;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class MergeSort implements ListSort {
+public class MergeSort extends AbstractSort implements ListSort {
     @Override
     public <T> List<T> sort(List<T> list, Comparator<T> comparator) {
         List<T> newList = new MyArrayList<>(list);
@@ -59,5 +58,10 @@ public class MergeSort implements ListSort {
         for (int k = leftIndex; k <= rightIndex; k++) {
             copyList.set(k, sourceList.get(k));
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Сортировка слиянием";
     }
 }

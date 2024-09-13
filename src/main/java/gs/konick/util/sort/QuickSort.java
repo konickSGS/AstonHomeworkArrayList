@@ -2,14 +2,13 @@ package gs.konick.util.sort;
 
 import gs.konick.util.MyArrayList;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 /**
  * Реализация quickSort
  */
-public class QuickSort implements ListSort {
+public class QuickSort extends AbstractSort implements ListSort {
     /**
      * Главный метод сортировки
      */
@@ -58,12 +57,8 @@ public class QuickSort implements ListSort {
         }
     }
 
-    /**
-     * Метод для того, чтобы поменять ссылки в листе друг с другом
-     */
-    private <T> void swap(List<T> list, int i, int j) {
-        T temp = list.get(i);
-        list.set(i, list.get(j));
-        list.set(j, temp);
+    @Override
+    public String toString() {
+        return "Быстрая сортировка";
     }
 }
