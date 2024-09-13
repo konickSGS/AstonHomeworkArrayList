@@ -17,15 +17,15 @@ public class QuickSortTest {
     @MethodSource("provideSortEdgeCases")
     public <T> void testGetEdgeCases(List<T> list, Comparator<T> comparator) {
         List<T> myArrayList = new MyArrayList<>(list);
-        ListSort quickSort = new QuickSort();
-        List<T> actual = quickSort.sort(myArrayList, comparator);
+        ListSort sort = new QuickSort();
+        List<T> actual = sort.sort(myArrayList, comparator);
 
         List<T> expected = new ArrayList<>(list);
         expected.sort(comparator);
         Assertions.assertArrayEquals(
                 actual.toArray(),
                 expected.toArray(),
-                "Текущий результат\n" + actual + "\nне равен\n" + expected
+                sort + "\nТекущий результат\n" + actual + "\nне равен\n" + expected
         );
     }
 
@@ -37,6 +37,10 @@ public class QuickSortTest {
         return Stream.of(
                 Arguments.of(
                         List.of(10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0),
+                        intComparator
+                ),
+                Arguments.of(
+                        List.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
                         intComparator
                 ),
                 Arguments.of(

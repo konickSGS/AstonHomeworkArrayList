@@ -28,7 +28,7 @@ public class MergeSortTest {
         Assertions.assertArrayEquals(
                 actual.toArray(),
                 expected.toArray(),
-                "Текущий результат \n" + actual + "\nне равен\n" + expected
+                sort + "\nТекущий результат \n" + actual + "\nне равен\n" + expected
         );
     }
 
@@ -40,6 +40,10 @@ public class MergeSortTest {
         return Stream.of(
                 Arguments.of(
                         List.of(10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0),
+                        intComparator
+                ),
+                Arguments.of(
+                        List.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
                         intComparator
                 ),
                 Arguments.of(
