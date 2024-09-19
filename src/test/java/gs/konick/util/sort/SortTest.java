@@ -36,9 +36,10 @@ public class SortTest {
     static List<ListSort> sorts = List.of(
             new QuickSort(),
             new InsertionSort(),
-            new MergeSort());
+            new MergeSort()
+    );
 
-    static Comparator<Integer> intComparator = new Comparator<>() {
+    static Comparator<Integer> intReverseComparator = new Comparator<>() {
         @Override
         public int compare(Integer o1, Integer o2) {
             return Integer.compare(o2, o1);
@@ -57,27 +58,27 @@ public class SortTest {
         var arguments = List.of(
                 List.of(
                         List.of(10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0),
-                        intComparator
+                        intReverseComparator
                 ),
                 List.of(
                         List.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
-                        intComparator
+                        intReverseComparator
                 ),
                 List.of(
                         List.of(5, 4, 3, 2, 1, 0, 10, 9, 8, 7, 6),
-                        intComparator
+                        intReverseComparator
                 ),
                 List.of(
                         List.of(10),
-                        intComparator
+                        intReverseComparator
                 ),
                 List.of(
                         List.of(10, 9),
-                        intComparator
+                        intReverseComparator
                 ),
                 List.of(
                         randomList,
-                        intComparator
+                        intReverseComparator
                 )
         );
 
