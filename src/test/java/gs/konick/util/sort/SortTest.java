@@ -87,7 +87,7 @@ public class SortTest {
                                 .map(ArrayList::new)
                                 // Добавляем сортировку первым значением в список к аргументам
                                 .map(l -> {
-                                    l.add(0, sort);
+                                    l.addFirst(sort);
                                     return l;
                                 }).toList()
                 ).flatMap(List::stream)
