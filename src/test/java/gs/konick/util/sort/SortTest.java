@@ -16,7 +16,7 @@ import java.util.stream.Stream;
 
 public class SortTest {
 
-    @DisplayName("Проверка функции sort для всех доступных сортировок")
+    @DisplayName("Проверка функции sort")
     @ParameterizedTest(name = "{displayName}: {arguments}")
     @MethodSource("provideSortEdgeCases")
     public <T> void testGetEdgeCases(ListSort sort, List<T> list, Comparator<T> comparator) {
